@@ -52,7 +52,7 @@ def layout(title: str | None = None, with_menu: bool = True):
     """Base layout for all pages."""
     root_path = get_root_path()
     title = title or get_page_title(root_path)
-    with ui.column().classes("max-w-sm mx-auto sm:mx-0"):
+    with ui.column().classes("max-w-lg mx-auto"):
         custom_header()
 
         with ui.row().classes("min-w-full"):
