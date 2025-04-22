@@ -18,6 +18,12 @@ from beaverhabits.frontend.import_page import import_ui_page
 from beaverhabits.frontend.layout import custom_headers, redirect
 from beaverhabits.frontend.order_page import order_page_ui
 
+from .frontend.tasks_page import tasks_page_ui //added until 25 4-22-25
+
+@ui.page("/gui/tasks/")
+async def tasks_page(user: User = Depends(current_active_user)) -> None:
+    tasks_page_ui()
+
 from . import const, views
 from .app.auth import (
     user_authenticate,
