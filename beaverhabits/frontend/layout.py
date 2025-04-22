@@ -65,6 +65,12 @@ def menu_component(habit: Habit | None = None, habit_list: HabitList | None = No
     edit_dialog = habit_edit_dialog(habit) if habit else ui.dialog()
     path = context.client.page.path
 
+    def menu_component() -> None: //just added this 4-22-25
+    with ui.menu().props('role="menu"'):
+        compat_menu("Tasks", lambda: redirect("tasks"))
+        separator()
+        <previous code below>
+
     with ui.menu().props('role="menu"'):
         # habit page
         if habit:
@@ -114,6 +120,6 @@ def layout(
             menu_header(title, target=target)
             ui.space()
             with menu_icon_button(icons.MENU):
-                menu_component(habit, habit_list)
+                (habit, habit_list)
 
         yield
